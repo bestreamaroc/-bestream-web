@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="html-root">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BE STREAM - المنصة الرسمية للبث الرقمي الفائق</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Cairo', sans-serif; background-color: #020202; color: #f8fafc; }
+        .hero-glow { background: radial-gradient(circle at center, rgba(220, 38, 38, 0.15) 0%, transparent 70%); }
+        .glass-card { background: rgba(15, 15, 15, 0.75); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .input-box { background: rgba(5, 5, 5, 0.9); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .input-box:focus { border-color: #dc2626; outline: none; box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.2); }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-red-600 selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="w-full py-5 px-6 md:px-12 flex justify-between items-center border-b border-neutral-900 bg-[#020202]/90 backdrop-blur-md sticky top-0 z-50">
+        <div class="text-2xl md:text-3xl font-black tracking-wider text-red-600 flex items-center gap-1.5">
+            BE <span class="text-white">STREAM</span>
+        </div>
+        
+        <div class="flex items-center gap-4">
+            <!-- Language Switcher -->
+            <select id="lang-switch" onchange="changeLanguage(this.value)" class="bg-neutral-900 text-slate-200 border border-neutral-800 text-xs md:text-sm rounded-xl px-3 py-2 focus:outline-none focus:border-red-600 transition cursor-pointer">
+                <option value="ar">العربية</option>
+                <option value="fr">Français</option>
+                <option value="en">English</option>
+            </select>
+            <a href="#contact" id="nav-btn" class="bg-red-600 hover:bg-red-700 text-white px-5 py-2.5 rounded-xl text-xs md:text-sm font-bold transition-all shadow-lg shadow-red-600/30">
+                اتصل بنا
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="flex-grow flex flex-col items-center justify-center px-6 py-16 md:py-24 text-center relative overflow-hidden">
+        <!-- Background Glow -->
+        <div class="absolute inset-0 hero-glow pointer-events-none"></div>
+
+        <div class="max-w-5xl mx-auto relative z-10">
+            <span id="badge-text" class="bg-red-600/10 text-red-500 text-xs md:text-sm font-bold px-4 py-2 rounded-full border border-red-600/20 inline-block mb-6 tracking-wide">
+                المنصة الاحترافية الأولى للبث الرقمي بجودة 4K
+            </span>
+            <h1 id="hero-title" class="text-4xl md:text-7xl font-black tracking-tight mb-6 leading-tight">
+                عالمك الترفيهي بلا حدود مع <span class="text-red-600">BE STREAM</span>
+            </h1>
+            <p id="hero-desc" class="text-slate-400 text-base md:text-xl max-w-3xl mx-auto mb-12 leading-relaxed">
+                استمتع بمشاهدة أضخم مكتبة أفلام، مسلسلات حصرية، وقنوات عالمية مباشرة دون أي تقطيع. خوادم فائقة الاستقرار متوافقة مع كافة أجهزتك الذكية (الشاشات، الهواتف، وأجهزة Android TV).
+            </p>
+            
+            <!-- Features Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 text-start rtl:text-right">
+                <div class="glass-card p-8 rounded-3xl hover:border-red-600/50 transition duration-300">
+                    <div class="text-red-500 text-2xl font-black mb-3" id="feat-1-title">⚡ خوادم خارقة الاستقرار</div>
+                    <p class="text-slate-400 text-sm leading-relaxed" id="feat-1-desc">تقنية بث متطورة تضمن لك مشاهدة سلسة ودون أي انقطاع خلال المباريات والأحداث الكبرى.</p>
+                </div>
+                <div class="glass-card p-8 rounded-3xl hover:border-red-600/50 transition duration-300">
+                    <div class="text-red-500 text-2xl font-black mb-3" id="feat-2-title">🎬 مكتبة متجددة يومياً</div>
+                    <p class="text-slate-400 text-sm leading-relaxed" id="feat-2-desc">آلاف الأفلام والمسلسلات المحدثة فور صدورها عالمياً بجودات عالية 4K و FHD مع ترجمة دقيقة.</p>
+                </div>
+                <div class="glass-card p-8 rounded-3xl hover:border-red-600/50 transition duration-300">
+                    <div class="text-red-500 text-2xl font-black mb-3" id="feat-3-title">🛡️ دعم فوري وتفعيل سريع</div>
+                    <p class="text-slate-400 text-sm leading-relaxed" id="feat-3-desc">فريق دعم متواجد لمساعدتك في إعداد حسابك وتفعيله في أسرع وقت طوال أيام الأسبوع.</p>
+                </div>
+            </div>
+
+            <!-- Portal Login Simulation Box -->
+            <div id="portal-box" class="max-w-xl mx-auto glass-card p-8 md:p-10 rounded-3xl shadow-2xl mb-16 text-start rtl:text-right">
+                <h3 id="portal-title" class="text-2xl font-black mb-2 text-white text-center">دخول منصة البث <span class="text-red-600">BE STREAM</span></h3>
+                <p id="portal-subtitle" class="text-slate-400 text-xs md:text-sm mb-6 text-center">أدخل بيانات اشتراكك للوصول إلى لوحة التحكم والقنوات</p>
+                <div class="space-y-4">
+                    <div>
+                        <label id="label-user" class="block text-xs text-slate-400 mb-1.5 font-semibold">اسم المستخدم أو الرابط (Username)</label>
+                        <input type="text" id="input-user" placeholder="أدخل اسم المستخدم" class="w-full input-box rounded-xl px-4 py-3.5 text-sm text-white transition">
+                    </div>
+                    <div>
+                        <label id="label-pass" class="block text-xs text-slate-400 mb-1.5 font-semibold">كلمة المرور (Password)</label>
+                        <input type="password" id="input-pass" placeholder="••••••••" class="w-full input-box rounded-xl px-4 py-3.5 text-sm text-white transition">
+                    </div>
+                    <button id="btn-login" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 rounded-xl transition shadow-lg shadow-red-600/30 text-base cursor-pointer">
+                        تسجيل الدخول للمنصة
+                    </button>
+                </div>
+            </div>
+
+            <!-- Contact Section with Sales, Support & Email -->
+            <div id="contact" class="max-w-2xl mx-auto glass-card p-8 rounded-3xl mb-12">
+                <h3 id="contact-heading" class="text-xl font-black mb-6 text-white text-center">تواصل معنا المبيعات والدعم الفني</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                    <!-- Sales WhatsApp -->
+                    <a href="https://wa.me/212664333328?text=السلام%20عليكم،%20أريد%20الاشتراك%20في%20BE%20STREAM" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white text-sm md:text-base font-bold py-4 px-6 rounded-2xl transition-all shadow-xl shadow-emerald-600/20 flex items-center justify-center gap-3">
+                        💬 <span id="sales-btn-text">واتساب المبيعات</span>
+                    </a>
+                    <!-- Support WhatsApp -->
+                    <a href="https://wa.me/message/RSHELCBF2EZUK1" target="_blank" class="bg-neutral-800 hover:bg-neutral-700 text-white text-sm md:text-base font-bold py-4 px-6 rounded-2xl transition-all border border-neutral-700 flex items-center justify-center gap-3">
+                        🛠️ <span id="support-btn-text">الدعم الفني</span>
+                    </a>
+                </div>
+                <!-- Email Display -->
+                <div class="text-center pt-4 border-t border-neutral-800">
+                    <span class="text-xs text-slate-400 block mb-1" id="email-label">البريد الإلكتروني الرسمي:</span>
+                    <a href="mailto:contact@bestream.info" class="text-red-500 hover:text-red-400 font-bold text-sm tracking-wide">contact@bestream.info</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full py-6 text-center border-t border-neutral-900 text-slate-500 text-sm">
+        <span id="footer-text">جميع الحقوق محفوظة &copy; 2026 - </span><span class="text-slate-300 font-bold">BE STREAM</span>
+    </footer>
+
+    <!-- Multi-language Script -->
+    <script>
+        const translations = {
+            ar: {
+                dir: "rtl",
+                navBtn: "اتصل بنا",
+                badge: "المنصة الاحترافية الأولى للبث الرقمي بجودة 4K",
+                title: 'عالمك الترفيهي بلا حدود مع <span class="text-red-600">BE STREAM</span>',
+                desc: "استمتع بمشاهدة أضخم مكتبة أفلام، مسلسلات حصرية، وقنوات عالمية مباشرة دون أي تقطيع. خوادم فائقة الاستقرار متوافقة مع كافة أجهزتك الذكية (الشاشات، الهواتف، وأجهزة Android TV).",
+                feat1Title: "⚡ خوادم خارقة الاستقرار",
+                feat1Desc: "تقنية بث متطورة تضمن لك مشاهدة سلسة ودون أي انقطاع خلال المباريات والأحداث الكبرى.",
+                feat2Title: "🎬 مكتبة متجددة يومياً",
+                feat2Desc: "آلاف الأفلام والمسلسلات المحدثة فور صدورها عالمياً بجودات عالية 4K و FHD مع ترجمة دقيقة.",
+                feat3Title: "🛡️ دعم فوري وتفعيل سريع",
+                feat3Desc: "فريق دعم متواجد لمساعدتك في إعداد حسابك وتفعيله في أسرع وقت طوال أيام الأسبوع.",
+                portalTitle: 'دخول منصة البث <span class="text-red-600">BE STREAM</span>',
+                portalSubtitle: "أدخل بيانات اشتراكك للوصول إلى لوحة التحكم والقنوات",
+                labelUser: "اسم المستخدم أو الرابط (Username)",
+                inputUserPlaceholder: "أدخل اسم المستخدم",
+                labelPass: "كلمة المرور (Password)",
+                inputPassPlaceholder: "••••••••",
+                btnLogin: "تسجيل الدخول للمنصة",
+                contactHeading: "قنوات التواصل مع المبيعات والدعم الفني",
+                salesBtn: "واتساب المبيعات",
+                supportBtn: "الدعم الفني",
+                emailLabel: "البريد الإلكتروني الرسمي:",
+                footer: "جميع الحقوق محفوظة &copy; 2026 - "
+            },
+            fr: {
+                dir: "ltr",
+                navBtn: "Contact",
+                badge: "La première plateforme professionnelle de streaming 4K",
+                title: 'Votre univers de divertissement sans limites avec <span class="text-red-600">BE STREAM</span>',
+                desc: "Profitez de la plus grande bibliothèque de films, séries exclusives et chaînes mondiales en direct sans coupure. Des serveurs ultra-stables compatibles avec tous vos appareils intelligents (Smart TV, Mobile, Android TV).",
+                feat1Title: "⚡ Serveurs Ultra Stables",
+                feat1Desc: "Technologie de diffusion avancée garantissant un visionnage fluide sans interruption lors des grands événements.",
+                feat2Title: "🎬 Bibliothèque Quotidienne",
+                feat2Desc: "Des milliers de films et séries mis à jour dès leur sortie mondiale en qualité 4K et FHD avec sous-titres.",
+                feat3Title: "🛡️ Support & Activation",
+                feat3Desc: "Une équipe de support disponible pour vous aider à configurer et activer votre compte rapidement 7j/7.",
+                portalTitle: 'Connexion à la plateforme <span class="text-red-600">BE STREAM</span>',
+                portalSubtitle: "Entrez vos identifiants pour accéder au tableau de bord",
+                labelUser: "Nom d'utilisateur ou URL",
+                inputUserPlaceholder: "Entrez votre nom d'utilisateur",
+                labelPass: "Mot de passe (Password)",
+                inputPassPlaceholder: "••••••••",
+                btnLogin: "Connexion à la plateforme",
+                contactHeading: "Canaux de contact - Ventes & Support",
+                salesBtn: "WhatsApp Ventes",
+                supportBtn: "Support Technique",
+                emailLabel: "Email Officiel :",
+                footer: "Tous droits réservés &copy; 2026 - "
+            },
+            en: {
+                dir: "ltr",
+                navBtn: "Contact",
+                badge: "The Premier Professional 4K Streaming Platform",
+                title: 'Your Entertainment World Without Limits with <span class="text-red-600">BE STREAM</span>',
+                desc: "Enjoy the largest library of movies, exclusive series, and global live channels with zero buffering. Ultra-stable servers fully compatible with all your smart devices (Smart TVs, Mobiles, Android TV).",
+                feat1Title: "⚡ Ultra Stable Servers",
+                feat1Desc: "Advanced streaming technology ensuring smooth viewing without any interruptions during major matches.",
+                feat2Title: "🎬 Daily Updated Library",
+                feat2Desc: "Thousands of movies and series updated upon global release in high 4K and FHD quality.",
+                feat3Title: "🛡️ Support & Activation",
+                feat3Desc: "A dedicated support team ready to help you set up and activate your account anytime 24/7.",
+                portalTitle: 'Login to <span class="text-red-600">BE STREAM</span> Portal',
+                portalSubtitle: "Enter your subscription details to access the dashboard",
+                labelUser: "Username or URL",
+                inputUserPlaceholder: "Enter your username",
+                labelPass: "Password",
+                inputPassPlaceholder: "••••••••",
+                btnLogin: "Login to Platform",
+                contactHeading: "Contact Channels - Sales & Support",
+                salesBtn: "Sales WhatsApp",
+                supportBtn: "Technical Support",
+                emailLabel: "Official Email:",
+                footer: "All rights reserved &copy; 2026 - "
+            }
+        };
+
+        function changeLanguage(lang) {
+            const t = translations[lang];
+            document.getElementById('html-root').setAttribute('lang', lang);
+            document.getElementById('html-root').setAttribute('dir', t.dir);
+            
+            document.getElementById('nav-btn').innerText = t.navBtn;
+            document.getElementById('badge-text').innerText = t.badge;
+            document.getElementById('hero-title').innerHTML = t.title;
+            document.getElementById('hero-desc').innerText = t.desc;
+            
+            document.getElementById('feat-1-title').innerText = t.feat1Title;
+            document.getElementById('feat-1-desc').innerText = t.feat1Desc;
+            document.getElementById('feat-2-title').innerText = t.feat2Title;
+            document.getElementById('feat-2-desc').innerText = t.feat2Desc;
+            document.getElementById('feat-3-title').innerText = t.feat3Title;
+            document.getElementById('feat-3-desc').innerText = t.feat3Desc;
+            
+            document.getElementById('portal-title').innerHTML = t.portalTitle;
+            document.getElementById('portal-subtitle').innerText = t.portalSubtitle;
+            document.getElementById('label-user').innerText = t.labelUser;
+            document.getElementById('input-user').setAttribute('placeholder', t.inputUserPlaceholder);
+            document.getElementById('label-pass').innerText = t.labelPass;
+            document.getElementById('input-pass').setAttribute('placeholder', t.inputPassPlaceholder);
+            document.getElementById('btn-login').innerText = t.btnLogin;
+            
+            document.getElementById('contact-heading').innerText = t.contactHeading;
+            document.getElementById('sales-btn-text').innerText = t.salesBtn;
+            document.getElementById('support-btn-text').innerText = t.supportBtn;
+            document.getElementById('email-label').innerText = t.emailLabel;
+            document.getElementById('footer-text').innerHTML = t.footer;
+        }
+    </script>
+</body>
+</html>
