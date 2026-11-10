@@ -1,230 +1,838 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl" id="html-root">
+<!doctype html>
+<html lang="ar" dir="rtl" class="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BE STREAM - المنصة الرسمية للبث الرقمي الفائق</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Cairo', sans-serif; background-color: #020202; color: #f8fafc; }
-        .hero-glow { background: radial-gradient(circle at center, rgba(220, 38, 38, 0.15) 0%, transparent 70%); }
-        .glass-card { background: rgba(15, 15, 15, 0.75); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
-        .input-box { background: rgba(5, 5, 5, 0.9); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .input-box:focus { border-color: #dc2626; outline: none; box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.2); }
-    </style>
-</head>
-<body class="min-h-screen flex flex-col justify-between selection:bg-red-600 selection:text-white">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BE STREAM — PREMIUM 4K Global Digital Television &amp; VOD</title>
+  <meta name="description" content="BE STREAM Official Platform: +60,000 Live Channels, +100,000 Movies VOD, +80,000 Complete Series in 4K UHD. Supports ORA Pro, IBO One, Duplex Pro, ORA Player, IBO Player, IBOX Player." />
+  <meta property="og:title" content="BE STREAM — PREMIUM 4K Global Digital Television &amp; VOD" />
+  <meta property="og:description" content="+60,000 Live TV Channels, +100,000 Movies &amp; +80,000 Series in 4K Ultra HD." />
+  <meta property="og:type" content="website" />
 
-    <!-- Header / Navbar -->
-    <header class="w-full py-5 px-6 md:px-12 flex justify-between items-center border-b border-neutral-900 bg-[#020202]/90 backdrop-blur-md sticky top-0 z-50">
-        <div class="text-2xl md:text-3xl font-black tracking-wider text-red-600 flex items-center gap-1.5">
-            BE <span class="text-white">STREAM</span>
-        </div>
-        
-        <div class="flex items-center gap-4">
-            <!-- Language Switcher -->
-            <select id="lang-switch" onchange="changeLanguage(this.value)" class="bg-neutral-900 text-slate-200 border border-neutral-800 text-xs md:text-sm rounded-xl px-3 py-2 focus:outline-none focus:border-red-600 transition cursor-pointer">
-                <option value="ar">العربية</option>
-                <option value="fr">Français</option>
-                <option value="en">English</option>
-            </select>
-            <a href="#contact" id="nav-btn" class="bg-red-600 hover:bg-red-700 text-white px-5 py-2.5 rounded-xl text-xs md:text-sm font-bold transition-all shadow-lg shadow-red-600/30">
-                اتصل بنا
-            </a>
-        </div>
-    </header>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Readex+Pro:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-    <!-- Hero Section -->
-    <main class="flex-grow flex flex-col items-center justify-center px-6 py-16 md:py-24 text-center relative overflow-hidden">
-        <!-- Background Glow -->
-        <div class="absolute inset-0 hero-glow pointer-events-none"></div>
-
-        <div class="max-w-5xl mx-auto relative z-10">
-            <span id="badge-text" class="bg-red-600/10 text-red-500 text-xs md:text-sm font-bold px-4 py-2 rounded-full border border-red-600/20 inline-block mb-6 tracking-wide">
-                المنصة الاحترافية الأولى للبث الرقمي بجودة 4K
-            </span>
-            <h1 id="hero-title" class="text-4xl md:text-7xl font-black tracking-tight mb-6 leading-tight">
-                عالمك الترفيهي بلا حدود مع <span class="text-red-600">BE STREAM</span>
-            </h1>
-            <p id="hero-desc" class="text-slate-400 text-base md:text-xl max-w-3xl mx-auto mb-12 leading-relaxed">
-                استمتع بمشاهدة أضخم مكتبة أفلام، مسلسلات حصرية، وقنوات عالمية مباشرة دون أي تقطيع. خوادم فائقة الاستقرار متوافقة مع كافة أجهزتك الذكية (الشاشات، الهواتف، وأجهزة Android TV).
-            </p>
-            
-            <!-- Features Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 text-start rtl:text-right">
-                <div class="glass-card p-8 rounded-3xl hover:border-red-600/50 transition duration-300">
-                    <div class="text-red-500 text-2xl font-black mb-3" id="feat-1-title">⚡ خوادم خارقة الاستقرار</div>
-                    <p class="text-slate-400 text-sm leading-relaxed" id="feat-1-desc">تقنية بث متطورة تضمن لك مشاهدة سلسة ودون أي انقطاع خلال المباريات والأحداث الكبرى.</p>
-                </div>
-                <div class="glass-card p-8 rounded-3xl hover:border-red-600/50 transition duration-300">
-                    <div class="text-red-500 text-2xl font-black mb-3" id="feat-2-title">🎬 مكتبة متجددة يومياً</div>
-                    <p class="text-slate-400 text-sm leading-relaxed" id="feat-2-desc">آلاف الأفلام والمسلسلات المحدثة فور صدورها عالمياً بجودات عالية 4K و FHD مع ترجمة دقيقة.</p>
-                </div>
-                <div class="glass-card p-8 rounded-3xl hover:border-red-600/50 transition duration-300">
-                    <div class="text-red-500 text-2xl font-black mb-3" id="feat-3-title">🛡️ دعم فوري وتفعيل سريع</div>
-                    <p class="text-slate-400 text-sm leading-relaxed" id="feat-3-desc">فريق دعم متواجد لمساعدتك في إعداد حسابك وتفعيله في أسرع وقت طوال أيام الأسبوع.</p>
-                </div>
-            </div>
-
-            <!-- Portal Login Simulation Box -->
-            <div id="portal-box" class="max-w-xl mx-auto glass-card p-8 md:p-10 rounded-3xl shadow-2xl mb-16 text-start rtl:text-right">
-                <h3 id="portal-title" class="text-2xl font-black mb-2 text-white text-center">دخول منصة البث <span class="text-red-600">BE STREAM</span></h3>
-                <p id="portal-subtitle" class="text-slate-400 text-xs md:text-sm mb-6 text-center">أدخل بيانات اشتراكك للوصول إلى لوحة التحكم والقنوات</p>
-                <div class="space-y-4">
-                    <div>
-                        <label id="label-user" class="block text-xs text-slate-400 mb-1.5 font-semibold">اسم المستخدم أو الرابط (Username)</label>
-                        <input type="text" id="input-user" placeholder="أدخل اسم المستخدم" class="w-full input-box rounded-xl px-4 py-3.5 text-sm text-white transition">
-                    </div>
-                    <div>
-                        <label id="label-pass" class="block text-xs text-slate-400 mb-1.5 font-semibold">كلمة المرور (Password)</label>
-                        <input type="password" id="input-pass" placeholder="••••••••" class="w-full input-box rounded-xl px-4 py-3.5 text-sm text-white transition">
-                    </div>
-                    <button id="btn-login" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 rounded-xl transition shadow-lg shadow-red-600/30 text-base cursor-pointer">
-                        تسجيل الدخول للمنصة
-                    </button>
-                </div>
-            </div>
-
-            <!-- Contact Section with Sales, Support & Email -->
-            <div id="contact" class="max-w-2xl mx-auto glass-card p-8 rounded-3xl mb-12">
-                <h3 id="contact-heading" class="text-xl font-black mb-6 text-white text-center">تواصل معنا المبيعات والدعم الفني</h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                    <!-- Sales WhatsApp -->
-                    <a href="https://wa.me/212664333328?text=السلام%20عليكم،%20أريد%20الاشتراك%20في%20BE%20STREAM" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white text-sm md:text-base font-bold py-4 px-6 rounded-2xl transition-all shadow-xl shadow-emerald-600/20 flex items-center justify-center gap-3">
-                        💬 <span id="sales-btn-text">واتساب المبيعات</span>
-                    </a>
-                    <!-- Support WhatsApp -->
-                    <a href="https://wa.me/message/RSHELCBF2EZUK1" target="_blank" class="bg-neutral-800 hover:bg-neutral-700 text-white text-sm md:text-base font-bold py-4 px-6 rounded-2xl transition-all border border-neutral-700 flex items-center justify-center gap-3">
-                        🛠️ <span id="support-btn-text">الدعم الفني</span>
-                    </a>
-                </div>
-                <!-- Email Display -->
-                <div class="text-center pt-4 border-t border-neutral-800">
-                    <span class="text-xs text-slate-400 block mb-1" id="email-label">البريد الإلكتروني الرسمي:</span>
-                    <a href="mailto:contact@bestream.info" class="text-red-500 hover:text-red-400 font-bold text-sm tracking-wide">contact@bestream.info</a>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="w-full py-6 text-center border-t border-neutral-900 text-slate-500 text-sm">
-        <span id="footer-text">جميع الحقوق محفوظة &copy; 2026 - </span><span class="text-slate-300 font-bold">BE STREAM</span>
-    </footer>
-
-    <!-- Multi-language Script -->
-    <script>
-        const translations = {
-            ar: {
-                dir: "rtl",
-                navBtn: "اتصل بنا",
-                badge: "المنصة الاحترافية الأولى للبث الرقمي بجودة 4K",
-                title: 'عالمك الترفيهي بلا حدود مع <span class="text-red-600">BE STREAM</span>',
-                desc: "استمتع بمشاهدة أضخم مكتبة أفلام، مسلسلات حصرية، وقنوات عالمية مباشرة دون أي تقطيع. خوادم فائقة الاستقرار متوافقة مع كافة أجهزتك الذكية (الشاشات، الهواتف، وأجهزة Android TV).",
-                feat1Title: "⚡ خوادم خارقة الاستقرار",
-                feat1Desc: "تقنية بث متطورة تضمن لك مشاهدة سلسة ودون أي انقطاع خلال المباريات والأحداث الكبرى.",
-                feat2Title: "🎬 مكتبة متجددة يومياً",
-                feat2Desc: "آلاف الأفلام والمسلسلات المحدثة فور صدورها عالمياً بجودات عالية 4K و FHD مع ترجمة دقيقة.",
-                feat3Title: "🛡️ دعم فوري وتفعيل سريع",
-                feat3Desc: "فريق دعم متواجد لمساعدتك في إعداد حسابك وتفعيله في أسرع وقت طوال أيام الأسبوع.",
-                portalTitle: 'دخول منصة البث <span class="text-red-600">BE STREAM</span>',
-                portalSubtitle: "أدخل بيانات اشتراكك للوصول إلى لوحة التحكم والقنوات",
-                labelUser: "اسم المستخدم أو الرابط (Username)",
-                inputUserPlaceholder: "أدخل اسم المستخدم",
-                labelPass: "كلمة المرور (Password)",
-                inputPassPlaceholder: "••••••••",
-                btnLogin: "تسجيل الدخول للمنصة",
-                contactHeading: "قنوات التواصل مع المبيعات والدعم الفني",
-                salesBtn: "واتساب المبيعات",
-                supportBtn: "الدعم الفني",
-                emailLabel: "البريد الإلكتروني الرسمي:",
-                footer: "جميع الحقوق محفوظة &copy; 2026 - "
-            },
-            fr: {
-                dir: "ltr",
-                navBtn: "Contact",
-                badge: "La première plateforme professionnelle de streaming 4K",
-                title: 'Votre univers de divertissement sans limites avec <span class="text-red-600">BE STREAM</span>',
-                desc: "Profitez de la plus grande bibliothèque de films, séries exclusives et chaînes mondiales en direct sans coupure. Des serveurs ultra-stables compatibles avec tous vos appareils intelligents (Smart TV, Mobile, Android TV).",
-                feat1Title: "⚡ Serveurs Ultra Stables",
-                feat1Desc: "Technologie de diffusion avancée garantissant un visionnage fluide sans interruption lors des grands événements.",
-                feat2Title: "🎬 Bibliothèque Quotidienne",
-                feat2Desc: "Des milliers de films et séries mis à jour dès leur sortie mondiale en qualité 4K et FHD avec sous-titres.",
-                feat3Title: "🛡️ Support & Activation",
-                feat3Desc: "Une équipe de support disponible pour vous aider à configurer et activer votre compte rapidement 7j/7.",
-                portalTitle: 'Connexion à la plateforme <span class="text-red-600">BE STREAM</span>',
-                portalSubtitle: "Entrez vos identifiants pour accéder au tableau de bord",
-                labelUser: "Nom d'utilisateur ou URL",
-                inputUserPlaceholder: "Entrez votre nom d'utilisateur",
-                labelPass: "Mot de passe (Password)",
-                inputPassPlaceholder: "••••••••",
-                btnLogin: "Connexion à la plateforme",
-                contactHeading: "Canaux de contact - Ventes & Support",
-                salesBtn: "WhatsApp Ventes",
-                supportBtn: "Support Technique",
-                emailLabel: "Email Officiel :",
-                footer: "Tous droits réservés &copy; 2026 - "
-            },
-            en: {
-                dir: "ltr",
-                navBtn: "Contact",
-                badge: "The Premier Professional 4K Streaming Platform",
-                title: 'Your Entertainment World Without Limits with <span class="text-red-600">BE STREAM</span>',
-                desc: "Enjoy the largest library of movies, exclusive series, and global live channels with zero buffering. Ultra-stable servers fully compatible with all your smart devices (Smart TVs, Mobiles, Android TV).",
-                feat1Title: "⚡ Ultra Stable Servers",
-                feat1Desc: "Advanced streaming technology ensuring smooth viewing without any interruptions during major matches.",
-                feat2Title: "🎬 Daily Updated Library",
-                feat2Desc: "Thousands of movies and series updated upon global release in high 4K and FHD quality.",
-                feat3Title: "🛡️ Support & Activation",
-                feat3Desc: "A dedicated support team ready to help you set up and activate your account anytime 24/7.",
-                portalTitle: 'Login to <span class="text-red-600">BE STREAM</span> Portal',
-                portalSubtitle: "Enter your subscription details to access the dashboard",
-                labelUser: "Username or URL",
-                inputUserPlaceholder: "Enter your username",
-                labelPass: "Password",
-                inputPassPlaceholder: "••••••••",
-                btnLogin: "Login to Platform",
-                contactHeading: "Contact Channels - Sales & Support",
-                salesBtn: "Sales WhatsApp",
-                supportBtn: "Technical Support",
-                emailLabel: "Official Email:",
-                footer: "All rights reserved &copy; 2026 - "
-            }
-        };
-
-        function changeLanguage(lang) {
-            const t = translations[lang];
-            document.getElementById('html-root').setAttribute('lang', lang);
-            document.getElementById('html-root').setAttribute('dir', t.dir);
-            
-            document.getElementById('nav-btn').innerText = t.navBtn;
-            document.getElementById('badge-text').innerText = t.badge;
-            document.getElementById('hero-title').innerHTML = t.title;
-            document.getElementById('hero-desc').innerText = t.desc;
-            
-            document.getElementById('feat-1-title').innerText = t.feat1Title;
-            document.getElementById('feat-1-desc').innerText = t.feat1Desc;
-            document.getElementById('feat-2-title').innerText = t.feat2Title;
-            document.getElementById('feat-2-desc').innerText = t.feat2Desc;
-            document.getElementById('feat-3-title').innerText = t.feat3Title;
-            document.getElementById('feat-3-desc').innerText = t.feat3Desc;
-            
-            document.getElementById('portal-title').innerHTML = t.portalTitle;
-            document.getElementById('portal-subtitle').innerText = t.portalSubtitle;
-            document.getElementById('label-user').innerText = t.labelUser;
-            document.getElementById('input-user').setAttribute('placeholder', t.inputUserPlaceholder);
-            document.getElementById('label-pass').innerText = t.labelPass;
-            document.getElementById('input-pass').setAttribute('placeholder', t.inputPassPlaceholder);
-            document.getElementById('btn-login').innerText = t.btnLogin;
-            
-            document.getElementById('contact-heading').innerText = t.contactHeading;
-            document.getElementById('sales-btn-text').innerText = t.salesBtn;
-            document.getElementById('support-btn-text').innerText = t.supportBtn;
-            document.getElementById('email-label').innerText = t.emailLabel;
-            document.getElementById('footer-text').innerHTML = t.footer;
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Outfit', 'Readex Pro', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'Readex Pro', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            gold: '#E5A93C',
+            obsidian: '#090A0F',
+            surface: '#121520',
+          }
         }
-    </script>
+      }
+    };
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+      background-color: #090A0F;
+      color: #F3F4F6;
+    }
+    html[dir="rtl"] {
+      font-family: 'Readex Pro', 'Plus Jakarta Sans', sans-serif;
+    }
+    html[dir="ltr"] {
+      font-family: 'Plus Jakarta Sans', 'Readex Pro', sans-serif;
+    }
+    h1, h2, h3, .font-display {
+      font-family: 'Outfit', 'Readex Pro', sans-serif;
+      text-wrap: balance;
+    }
+    .tabular-nums {
+      font-variant-numeric: tabular-nums;
+    }
+    input[type="range"] {
+      accent-color: #E5A93C;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#090A0F] text-[#F3F4F6] antialiased selection:bg-[#E5A93C] selection:text-[#090A0F]">
+
+  <!-- Top Navigation Bar -->
+  <header class="sticky top-0 z-40 flex items-center justify-between gap-8 px-6 lg:px-12 py-4 bg-[#090A0F]/90 backdrop-blur-md border-b border-white/10">
+    <a href="#top" class="text-xl font-bold tracking-tight text-white font-display whitespace-nowrap shrink-0">
+      BE STREAM
+    </a>
+
+    <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-neutral-300">
+      <a href="#apps" id="nav-apps" class="hover:text-white hover:underline underline-offset-8 decoration-[#E5A93C] transition-colors whitespace-nowrap shrink-0">التطبيقات المدعومة</a>
+      <a href="#capabilities" id="nav-capabilities" class="hover:text-white hover:underline underline-offset-8 decoration-[#E5A93C] transition-colors whitespace-nowrap shrink-0">مزايا الخدمة</a>
+      <a href="#bouquets" id="nav-bouquets" class="hover:text-white hover:underline underline-offset-8 decoration-[#E5A93C] transition-colors whitespace-nowrap shrink-0">الباقات والقنوات</a>
+      <a href="#pricing" id="nav-pricing" class="hover:text-white hover:underline underline-offset-8 decoration-[#E5A93C] transition-colors whitespace-nowrap shrink-0">خطط الاشتراك</a>
+    </nav>
+
+    <div class="flex items-center shrink-0">
+      <button type="button" onclick="scrollToOrder('subscription')" class="inline-flex items-center gap-2 px-4 py-2 text-xs sm:text-sm font-semibold text-[#090A0F] bg-[#E5A93C] rounded-lg hover:bg-[#f0b84d] transition-colors whitespace-nowrap shrink-0 cursor-pointer">
+        <span id="nav-cta">طلب اشتراك أو تجربة 24 ساعة</span>
+        <span>↘</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Language & Status Utility Bar -->
+    <div class="border-b border-white/10 bg-[#0D0F17]">
+      <div class="max-w-7xl mx-auto px-6 lg:px-12 py-3 flex flex-wrap items-center justify-between gap-4">
+        <div class="flex flex-wrap items-center gap-3 text-xs text-neutral-400">
+          <span class="text-[#E5A93C]">●</span>
+          <span id="hero-status">خدمة BE STREAM الرسمية · +60,000 قناة · +100,000 فيلم · +80,000 مسلسل</span>
+          <span aria-hidden="true">·</span>
+          <a href="mailto:contact@bestream.info" class="font-mono text-neutral-300 hover:text-[#E5A93C] transition-colors">contact@bestream.info</a>
+        </div>
+
+        <div role="group" aria-label="Language switcher" class="flex items-center gap-1 p-1 bg-[#151926] border border-white/10 rounded-lg">
+          <button type="button" onclick="setLanguage('ar')" id="lang-btn-ar" class="px-3 py-1.5 text-xs font-semibold rounded-md transition-colors whitespace-nowrap shrink-0 cursor-pointer bg-[#E5A93C] text-[#090A0F]">العربية</button>
+          <button type="button" onclick="setLanguage('fr')" id="lang-btn-fr" class="px-3 py-1.5 text-xs font-medium rounded-md transition-colors whitespace-nowrap shrink-0 cursor-pointer text-neutral-300 hover:text-white">Français</button>
+          <button type="button" onclick="setLanguage('en')" id="lang-btn-en" class="px-3 py-1.5 text-xs font-medium rounded-md transition-colors whitespace-nowrap shrink-0 cursor-pointer text-neutral-300 hover:text-white">English</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 1: Hero Section & Glassmorphic PREMIUM 4K Global Visual Mockup -->
+    <section class="max-w-7xl mx-auto px-6 lg:px-12 pt-10 pb-16 lg:pt-16 lg:pb-24">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        <!-- Hero Text Column -->
+        <div class="lg:col-span-6 flex flex-col justify-between space-y-8">
+          <div class="space-y-6">
+            <p id="hero-kicker" class="text-xs sm:text-sm font-medium text-[#E5A93C] tracking-wide">
+              BE STREAM · البث الرقمي الفائق · أوروبا والمغرب والعالم
+            </p>
+            <h1 id="hero-headline" class="font-display font-bold text-white tracking-tight leading-[1.15]" style="font-size: clamp(2.15rem, 3.6vw, 3.35rem);">
+              تجربة التلفزيون المباشر والسينما المنزلية بدقة 4K حقيقية دون انقطاع
+            </h1>
+            <p id="hero-desc" class="text-base sm:text-lg text-neutral-300 leading-relaxed max-w-2xl">
+              منصة BE STREAM تمنحك وصولاً فورياً لأكثر من 60,000 قناة عالمية ورياضية مباشرة، وأكثر من 100,000 فيلم عالمي وعربي، وأكثر من 80,000 مسلسل كامل بجميع المواسم محدثة يومياً عبر خوادم فائقة السرعة.
+            </p>
+          </div>
+
+          <div class="space-y-5 pt-2">
+            <div class="flex flex-wrap items-center gap-4">
+              <button type="button" onclick="scrollToOrder('subscription')" class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 text-sm sm:text-base font-semibold text-[#090A0F] bg-[#E5A93C] rounded-lg hover:bg-[#f0b84d] transition-colors whitespace-nowrap shrink-0 cursor-pointer">
+                <span id="hero-primary-cta">ابدأ اشتراكك أو اطلب تجربة 24 ساعة</span>
+                <span>↘</span>
+              </button>
+              <a href="#apps" id="hero-secondary-cta" class="inline-flex items-center justify-center px-5 py-3.5 text-sm sm:text-base font-medium text-neutral-200 bg-[#141722] border border-white/10 rounded-lg hover:bg-[#1B1F2E] hover:text-white transition-colors whitespace-nowrap shrink-0">
+                تصفح التطبيقات والباقات
+              </a>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-2 text-xs text-neutral-400 pt-2" dir="ltr">
+              <span>+60,000 Live Channels</span>
+              <span>·</span>
+              <span>+100,000 Movies</span>
+              <span>·</span>
+              <span>+80,000 Series</span>
+              <span>·</span>
+              <span>ORA Pro / IBO One / Duplex Pro</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual Mockup Column (Curved Smart TV + Tablet + Smartphone + Ambient Glow + Glassmorphism) -->
+        <div class="lg:col-span-6 w-full">
+          <div class="relative mx-auto w-full">
+            <!-- Warm Orange & Red Ambient Lighting Glow -->
+            <div aria-hidden="true" class="pointer-events-none absolute -inset-3 sm:-inset-5 rounded-3xl bg-gradient-to-tr from-red-600/30 via-orange-500/30 to-amber-500/20 blur-2xl opacity-95"></div>
+
+            <!-- Glassmorphism Frame -->
+            <div class="relative rounded-2xl bg-white/[0.04] backdrop-blur-xl border border-white/15 p-2.5 sm:p-4 shadow-[0_24px_64px_-12px_rgba(234,88,12,0.35)]">
+              <div class="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden rounded-xl border border-white/10 bg-[#0B0D14]">
+                <!-- Interactive Multi-Device Curved Smart TV & Devices Scene -->
+                <svg viewBox="0 0 1200 675" class="w-full h-full object-cover" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="PREMIUM 4K Global Smart TV, Tablet, and Smartphone Mockup">
+                  <defs>
+                    <radialGradient id="ambientGlow" cx="50%" cy="42%" r="55%">
+                      <stop offset="0%" stop-color="#EA580C" stop-opacity="0.55"/>
+                      <stop offset="45%" stop-color="#DC2626" stop-opacity="0.28"/>
+                      <stop offset="100%" stop-color="#090A0F" stop-opacity="1"/>
+                    </radialGradient>
+                    <linearGradient id="tvScreenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#0E1726"/>
+                      <stop offset="50%" stop-color="#0A2E24"/>
+                      <stop offset="100%" stop-color="#111827"/>
+                    </linearGradient>
+                    <linearGradient id="woodTable" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#1C140F"/>
+                      <stop offset="50%" stop-color="#2E1F16"/>
+                      <stop offset="100%" stop-color="#18110C"/>
+                    </linearGradient>
+                  </defs>
+                  <!-- Dark Wall & Warm Ambient Backlight -->
+                  <rect width="1200" height="675" fill="#090A0F"/>
+                  <rect width="1200" height="675" fill="url(#ambientGlow)"/>
+
+                  <!-- Curved Smart TV Frame Mounted on Wall -->
+                  <path d="M 190 70 Q 600 92 1010 70 L 1020 445 Q 600 425 180 445 Z" fill="#05070B" stroke="#374151" stroke-width="4"/>
+                  <path d="M 198 78 Q 600 99 1002 78 L 1010 436 Q 600 417 190 436 Z" fill="url(#tvScreenGrad)"/>
+
+                  <!-- Stadium Pitch & Live Broadcast Graphic inside TV -->
+                  <ellipse cx="660" cy="245" rx="260" ry="95" fill="#10B981" fill-opacity="0.22" stroke="#34D399" stroke-opacity="0.4" stroke-width="2"/>
+                  <rect x="235" y="135" width="190" height="115" rx="8" fill="#1E293B" stroke="#E5A93C" stroke-width="1.5"/>
+                  <rect x="235" y="265" width="90" height="125" rx="6" fill="#31102F" stroke="#F59E0B" stroke-width="1"/>
+                  <rect x="335" y="265" width="90" height="125" rx="6" fill="#0F2942" stroke="#38BDF8" stroke-width="1"/>
+                  <rect x="435" y="265" width="90" height="125" rx="6" fill="#1E1B4B" stroke="#A855F7" stroke-width="1"/>
+
+                  <!-- Modern Wooden Table in Foreground -->
+                  <polygon points="80,535 1120,535 1200,675 0,675" fill="url(#woodTable)" stroke="#452719" stroke-width="2"/>
+
+                  <!-- Tablet on Wooden Table -->
+                  <rect x="370" y="455" width="210" height="130" rx="12" fill="#0B0F19" stroke="#64748B" stroke-width="3"/>
+                  <rect x="380" y="465" width="190" height="110" rx="6" fill="url(#tvScreenGrad)"/>
+
+                  <!-- Smartphone on Wooden Table -->
+                  <rect x="615" y="480" width="70" height="115" rx="10" fill="#0B0F19" stroke="#64748B" stroke-width="2.5"/>
+                  <rect x="621" y="488" width="58" height="99" rx="5" fill="url(#tvScreenGrad)"/>
+
+                  <!-- Remote Control on Wooden Table -->
+                  <rect x="725" y="545" width="95" height="28" rx="8" transform="rotate(8 725 545)" fill="#11131A" stroke="#475569" stroke-width="2"/>
+                  <circle cx="750" cy="562" r="5" fill="#EA580C"/>
+                </svg>
+
+                <!-- Measured Contrast Scrim -->
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/60"></div>
+
+                <!-- Top Bar inside Screen: PREMIUM 4K Global -->
+                <div dir="ltr" class="absolute top-3 inset-x-3 sm:top-4 sm:inset-x-5 flex items-center justify-between gap-2 z-10">
+                  <span class="font-display text-xs sm:text-sm md:text-base font-bold tracking-wider text-white drop-shadow">
+                    PREMIUM 4K Global
+                  </span>
+                  <span class="text-[10px] sm:text-xs font-mono text-amber-300/95 tracking-wide">
+                    +60K LIVE · +100K MOVIES · +80K SERIES
+                  </span>
+                </div>
+
+                <!-- Center-Bottom Interactive Callout & Orange CTA -->
+                <div class="absolute inset-x-3 bottom-9 sm:inset-x-5 sm:bottom-10 z-10 flex flex-col items-start gap-2 sm:gap-3">
+                  <div class="space-y-1 text-start">
+                    <p dir="rtl" class="text-sm sm:text-lg md:text-xl font-bold text-white font-display drop-shadow">
+                      المنصة الرقمية للبث الفائق
+                    </p>
+                    <p dir="ltr" class="text-[10px] sm:text-xs font-mono font-semibold tracking-wider text-amber-200/95">
+                      PREMIUM 4K ULTRA HD / NO CUTS / MULTI-LANGUAGES
+                    </p>
+                  </div>
+
+                  <button type="button" onclick="scrollToOrder('trial')" class="inline-flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-[#FF6B00] to-[#E04800] hover:from-[#FF7B1A] hover:to-[#F05206] rounded-lg shadow-[0_8px_24px_rgba(255,107,0,0.45)] transition-all whitespace-nowrap shrink-0 cursor-pointer">
+                    <span>طلب تجربة 24 ساعة / Commander ou Test 24h</span>
+                    <span>↘</span>
+                  </button>
+                </div>
+
+                <!-- Bottom-Right Corner Small Elegant Gold Signature -->
+                <div dir="ltr" class="absolute bottom-2.5 right-3 sm:bottom-3 sm:right-5 z-10 text-right">
+                  <span class="text-[10px] sm:text-xs font-medium tracking-wide text-[#E5A93C] drop-shadow">
+                    PREMIUM 4K Global powered by BE STREAM
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4-Column Quantitative KPI Strip -->
+      <div id="hero-metrics" class="mt-12 pt-10 border-t border-white/10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"></div>
+    </section>
+
+    <!-- Section 2: Supported Official Apps -->
+    <section id="apps" class="border-t border-white/10 bg-[#0C0E15] py-14 lg:py-20">
+      <div class="max-w-7xl mx-auto px-6 lg:px-12 space-y-10">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+          <div class="max-w-2xl space-y-2.5">
+            <p id="apps-kicker" class="text-xs font-medium text-[#E5A93C]">منظومة المشغلات المعتمدة</p>
+            <h2 id="apps-title" class="text-2xl sm:text-3xl font-bold text-white font-display tracking-tight">
+              التطبيقات الرسمية المدعومة من BE STREAM
+            </h2>
+            <p id="apps-subtitle" class="text-sm sm:text-base text-neutral-300 leading-relaxed">
+              توافق كامل وتفعيل فوري عن بُعد لجميع تطبيقات البث الرائدة على الشاشات الذكية وأجهزة الاستقبال بضغطة زر.
+            </p>
+          </div>
+          <div dir="ltr" class="text-xs font-mono text-neutral-400 tracking-wide">
+            ORA Pro · IBO One · Duplex Pro · ORA Player · IBO Player · IBOX Player
+          </div>
+        </div>
+
+        <div id="apps-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+      </div>
+    </section>
+
+    <!-- Section 3: Core Capabilities -->
+    <section id="capabilities" class="border-t border-white/10 bg-[#0D0F16] py-16 lg:py-24">
+      <div class="max-w-7xl mx-auto px-6 lg:px-12 space-y-12">
+        <div class="max-w-3xl space-y-3">
+          <p id="cap-kicker" class="text-xs font-medium text-[#E5A93C] tracking-wide">البنية التقنية وجودة البث</p>
+          <h2 id="cap-title" class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white font-display tracking-tight">
+            لماذا يختار المشتركون خدمة BE STREAM كمنصتهم الأساسية؟
+          </h2>
+          <p id="cap-subtitle" class="text-sm sm:text-base text-neutral-300 leading-relaxed">
+            صُممت خدمة BE STREAM لتجاوز مشاكل التقطيع وتأخر البث التقليدية، مع واجهة استخدام نظيفة وتوجيه ذكي للبيانات يضمن أعلى نقاء للصورة والصوت.
+          </p>
+        </div>
+
+        <div id="cap-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+      </div>
+    </section>
+
+    <!-- Section 4: Interactive Bouquets & Bandwidth Checker -->
+    <section id="bouquets" class="py-16 lg:py-24 border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-6 lg:px-12 space-y-10">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+          <div class="max-w-2xl space-y-3">
+            <p id="bouquets-kicker" class="text-xs font-medium text-[#E5A93C] tracking-wide">دليل القنوات والمحتوى الضخم</p>
+            <h2 id="bouquets-title" class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white font-display tracking-tight">
+              تصفح الباقات المتوفرة على منصة BE STREAM
+            </h2>
+            <p id="bouquets-subtitle" class="text-sm sm:text-base text-neutral-300 leading-relaxed">
+              اختر التصنيف لمعاينة محتوى +60,000 قناة مباشرة و+100,000 فيلم و+80,000 مسلسل متاحة فوراً عند الاشتراك.
+            </p>
+          </div>
+        </div>
+
+        <div id="category-tabs" class="flex flex-wrap items-center gap-1.5 p-1.5 bg-[#121520] border border-white/10 rounded-lg w-fit"></div>
+        <div id="bouquets-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+      </div>
+    </section>
+
+    <!-- Section 5: Euro Pricing Plans (18€ / 28€ / 45€) -->
+    <section id="pricing" class="py-16 lg:py-24 border-t border-white/10 bg-[#0D0F16]">
+      <div class="max-w-7xl mx-auto px-6 lg:px-12 space-y-12">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div class="max-w-2xl space-y-3">
+            <p id="pricing-kicker" class="text-xs font-medium text-[#E5A93C] tracking-wide">باقات الاشتراك الرسمية باليورو (€)</p>
+            <h2 id="pricing-title" class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white font-display tracking-tight">
+              اختر خطة BE STREAM المناسبة لك مع تفعيل فوري
+            </h2>
+            <p id="pricing-subtitle" class="text-sm sm:text-base text-neutral-300 leading-relaxed">
+              أسعار رسمية باليورو شاملة لجميع القنوات (+60,000 قناة) والأفلام (+100,000 فيلم) والمسلسلات (+80,000 مسلسل) والدعم الفني 7/7.
+            </p>
+          </div>
+          <div class="text-xs font-mono text-[#E5A93C] bg-[#151926] border border-white/10 px-4 py-2 rounded-lg" dir="ltr">
+            3M: 18 € · 6M: 28 € · 12M: 45 €
+          </div>
+        </div>
+
+        <div id="pricing-grid" class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch"></div>
+      </div>
+    </section>
+
+    <!-- Section 6: Official Permanent WhatsApp Links & Instant Order Form -->
+    <section id="order" class="py-16 lg:py-24 border-t border-white/10 bg-gradient-to-b from-[#0D0F16] to-[#090A0F]">
+      <div class="max-w-7xl mx-auto px-6 lg:px-12 space-y-12">
+        <div class="max-w-3xl space-y-3">
+          <p id="order-kicker" class="text-xs font-medium text-[#E5A93C] tracking-wide">التفعيل الفوري وقنوات التواصل الرسمية الدائمة</p>
+          <h2 id="order-title" class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white font-display">
+            احصل على حساب BE STREAM أو تواصل مباشرة مع المبيعات والدعم الفني
+          </h2>
+          <p id="order-desc" class="text-sm sm:text-base text-neutral-300 leading-relaxed">
+            يمكنك إرسال طلبك مباشرة باليورو (€) عبر النموذج الفوري أو التواصل عبر روابط واتساب الرسمية الدائمة للمبيعات والدعم الفني.
+          </p>
+        </div>
+
+        <!-- Permanent WhatsApp & Email Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Sales -->
+          <div class="p-6 rounded-xl border border-white/10 bg-[#121520] flex flex-col justify-between space-y-5">
+            <div class="space-y-2">
+              <div id="sales-card-title" class="text-[#E5A93C] text-xs font-semibold">قسم المبيعات والاشتراكات (Sales)</div>
+              <p class="text-xs text-neutral-400 font-mono" dir="ltr">wa.me/bestream.sales · +212 664-333328</p>
+            </div>
+            <div class="space-y-2.5 pt-2">
+              <a href="https://wa.me/bestream.sales" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-between px-4 py-2.5 text-xs font-semibold text-[#090A0F] bg-[#E5A93C] rounded-lg hover:bg-[#f0b84d] transition-colors">
+                <span>wa.me/bestream.sales</span>
+                <span>↗</span>
+              </a>
+              <a href="https://wa.me/212664333328" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-between px-4 py-2.5 text-xs font-medium text-neutral-200 bg-[#090A0F] border border-white/10 rounded-lg hover:border-white/25 transition-colors">
+                <span dir="ltr">+212 664-333328 (WhatsApp)</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Support -->
+          <div class="p-6 rounded-xl border border-white/10 bg-[#121520] flex flex-col justify-between space-y-5">
+            <div class="space-y-2">
+              <div id="support-card-title" class="text-[#E5A93C] text-xs font-semibold">قسم الدعم الفني والتفعيل (Support)</div>
+              <p class="text-xs text-neutral-400 font-mono" dir="ltr">wa.me/bestream.supprt · RSHELCBF2EZUK1</p>
+            </div>
+            <div class="space-y-2.5 pt-2">
+              <a href="https://wa.me/bestream.supprt" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-between px-4 py-2.5 text-xs font-semibold text-white bg-white/10 rounded-lg hover:bg-white/15 transition-colors">
+                <span>wa.me/bestream.supprt</span>
+                <span>↗</span>
+              </a>
+              <a href="https://wa.me/message/RSHELCBF2EZUK1" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-between px-4 py-2.5 text-xs font-medium text-neutral-200 bg-[#090A0F] border border-white/10 rounded-lg hover:border-white/25 transition-colors">
+                <span>Direct Encrypted Support</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Official Email -->
+          <div class="p-6 rounded-xl border border-white/10 bg-[#121520] flex flex-col justify-between space-y-5">
+            <div class="space-y-2">
+              <div id="email-card-title" class="text-[#E5A93C] text-xs font-semibold">البريد الإلكتروني الرسمي</div>
+              <p class="text-xs text-neutral-400">24/7 Official Support &amp; Activation</p>
+            </div>
+            <div class="space-y-2.5 pt-2">
+              <a href="mailto:contact@bestream.info" dir="ltr" class="w-full inline-flex items-center justify-between px-4 py-3 text-xs sm:text-sm font-mono font-semibold text-[#E5A93C] bg-[#090A0F] border border-[#E5A93C]/40 rounded-lg hover:border-[#E5A93C] transition-colors">
+                <span>contact@bestream.info</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Euro Order Form -->
+        <div class="p-6 sm:p-10 rounded-2xl border border-[#E5A93C]/40 bg-[#121520]">
+          <form id="order-form" onsubmit="submitOrderForm(event)" class="space-y-6">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <button type="button" onclick="selectPlan('3m', '18 €')" id="plan-btn-3m" class="p-4 rounded-lg border text-start transition-colors cursor-pointer bg-[#090A0F] border-white/10 text-neutral-300">
+                <div class="text-xs font-semibold" id="form-plan-3m-label">3 أشهر / 3 Months</div>
+                <div class="text-lg font-bold font-mono text-[#E5A93C] tabular-nums">18 €</div>
+              </button>
+              <button type="button" onclick="selectPlan('6m', '28 €')" id="plan-btn-6m" class="p-4 rounded-lg border text-start transition-colors cursor-pointer bg-[#090A0F] border-white/10 text-neutral-300">
+                <div class="text-xs font-semibold" id="form-plan-6m-label">6 أشهر / 6 Months</div>
+                <div class="text-lg font-bold font-mono text-[#E5A93C] tabular-nums">28 €</div>
+              </button>
+              <button type="button" onclick="selectPlan('12m', '45 €')" id="plan-btn-12m" class="p-4 rounded-lg border text-start transition-colors cursor-pointer bg-[#E5A93C]/15 border-[#E5A93C] text-white">
+                <div class="flex items-center justify-between text-xs font-semibold">
+                  <span id="form-plan-12m-label">12 شهراً / 12 Months</span>
+                  <span class="text-[10px] font-mono text-[#E5A93C]">★ VIP 4K</span>
+                </div>
+                <div class="text-lg font-bold font-mono text-[#E5A93C] tabular-nums">45 €</div>
+              </button>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="space-y-1.5">
+                <label id="label-name" class="block text-xs font-medium text-neutral-300">الاسم الكامل</label>
+                <input id="input-name" type="text" required placeholder="أدخل اسمك الكامل" class="w-full px-4 py-3 text-sm bg-[#090A0F] border border-white/15 rounded-lg text-white placeholder:text-neutral-500 focus:outline-none focus:border-[#E5A93C]" />
+              </div>
+              <div class="space-y-1.5">
+                <label id="label-contact" class="block text-xs font-medium text-neutral-300">رقم الهاتف (واتساب) أو البريد الإلكتروني</label>
+                <input id="input-contact" type="text" dir="ltr" required placeholder="+212 6XX-XXXXXX / name@email.com" class="w-full px-4 py-3 text-sm bg-[#090A0F] border border-white/15 rounded-lg text-white placeholder:text-neutral-500 focus:outline-none focus:border-[#E5A93C]" />
+              </div>
+            </div>
+
+            <div class="space-y-1.5">
+              <label id="label-app" class="block text-xs font-medium text-neutral-300">التطبيق الرسمي المفضل</label>
+              <input id="input-app" type="text" value="ORA Pro" class="w-full px-4 py-3 text-sm bg-[#090A0F] border border-white/15 rounded-lg text-white focus:outline-none focus:border-[#E5A93C]" />
+            </div>
+
+            <button type="submit" id="submit-order-btn" class="w-full py-4 px-6 text-sm sm:text-base font-semibold text-[#090A0F] bg-[#E5A93C] rounded-lg hover:bg-[#f0b84d] transition-colors cursor-pointer">
+              تأكيد الطلب وإرسال عبر واتساب المبيعات الرسمي
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/10 bg-[#07080C] py-12">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 space-y-8">
+      <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+        <div class="space-y-2 max-w-xl">
+          <div class="text-lg font-bold tracking-tight text-white font-display">BE STREAM</div>
+          <p id="footer-desc" class="text-xs sm:text-sm text-neutral-400 leading-relaxed">
+            المنصة الرسمية لخدمة BE STREAM للبث التلفزيوني الرقمي (+60,000 قناة مباشرة، +100,000 فيلم، +80,000 مسلسل) باللغات العربية والفرنسية والإنجليزية.
+          </p>
+        </div>
+        <div dir="ltr" class="flex flex-wrap items-center gap-4 text-xs font-mono text-neutral-300">
+          <a href="https://wa.me/bestream.sales" target="_blank" rel="noopener noreferrer" class="hover:text-[#E5A93C]">wa.me/bestream.sales</a>
+          <span>·</span>
+          <a href="https://wa.me/212664333328" target="_blank" rel="noopener noreferrer" class="hover:text-[#E5A93C]">+212 664-333328</a>
+          <span>·</span>
+          <a href="https://wa.me/bestream.supprt" target="_blank" rel="noopener noreferrer" class="hover:text-[#E5A93C]">wa.me/bestream.supprt</a>
+          <span>·</span>
+          <a href="mailto:contact@bestream.info" class="text-[#E5A93C] hover:underline">contact@bestream.info</a>
+        </div>
+      </div>
+
+      <div class="pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4 text-xs text-neutral-500">
+        <span id="footer-rights">جميع الحقوق محفوظة © 2026 BE STREAM · منصة البث الرقمي الفائق 4K</span>
+        <div class="flex items-center gap-4">
+          <button type="button" onclick="setLanguage('ar')" class="hover:text-white cursor-pointer">العربية</button>
+          <span>·</span>
+          <button type="button" onclick="setLanguage('fr')" class="hover:text-white cursor-pointer">Français</button>
+          <span>·</span>
+          <button type="button" onclick="setLanguage('en')" class="hover:text-white cursor-pointer">English</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Complete Multilingual State & Interactive Logic -->
+  <script>
+    let currentLang = 'ar';
+    let currentCategory = 'all';
+    let currentPlan = '12 Months (45 €)';
+
+    const OFFICIAL_APPS = [
+      { name: 'ORA Pro', spec: '4K UHD · Fast Zapping · EPG', platforms: 'Samsung · LG · Android TV · Firestick' },
+      { name: 'IBO One', spec: 'MAC Activation · Multi-Playlist', platforms: 'Smart TV · Android Box · Fire TV · iOS' },
+      { name: 'Duplex Pro', spec: 'UHD HDR10 · Multi-Audio · Subtitles', platforms: 'Samsung Tizen · LG WebOS · Windows' },
+      { name: 'ORA Player', spec: '60 FPS Direct · Anti-Freeze 9.4', platforms: 'Smart TV · Android TV · Google TV' },
+      { name: 'IBO Player', spec: 'Remote MAC Sync · 4K VOD Player', platforms: 'Samsung · LG · Apple TV · Android' },
+      { name: 'IBOX Player', spec: 'Xtream API · M3U Plus · Catch-Up', platforms: 'Smart TV · Box Android · Mobile' }
+    ];
+
+    const BOUQUETS = [
+      {
+        cat: 'sports',
+        count: '+4,800',
+        res: '4K UHD · 60 FPS',
+        name: { ar: 'الباقة الرياضية العربية والعالمية الكاملة', fr: 'Bouquet Sport International & MENA 4K', en: 'Global & MENA Pro Sports Suite' },
+        desc: { ar: 'جميع الدوريات الأوروبية الكبرى، دوري أبطال أوروبا، والبطولات القارية والعالمية بدون تقطيع.', fr: 'Champions League, Premier League, Liga, Serie A et grands événements sportifs en 60 FPS.', en: 'Champions League, Premier League, La Liga, Serie A, and live stadium feeds in 60 FPS.' }
+      },
+      {
+        cat: 'arabic',
+        count: '+12,500',
+        res: '4K · FHD 1080p',
+        name: { ar: 'القنوات المغربية والعربية الشاملة', fr: 'Chaînes Marocaines, Maghrébines & Arabes', en: 'Moroccan, Maghreb & Pan-Arab Channels' },
+        desc: { ar: 'الأولى، دوزيم، الرياضية المغربية، قنوات الخليج، مصر، الشام، وباقات الترفيه العائلي.', fr: 'Al Aoula, 2M, Arryadia HD, MBC, Rotana et toutes les chaînes du monde arabe.', en: 'Al Aoula, 2M, Arryadia HD, MBC suite, Rotana, and 24/7 Arabic networks.' }
+      },
+      {
+        cat: 'french',
+        count: '+38,200',
+        res: '4K UHD · FHD',
+        name: { ar: 'الباقة الفرنسية والأوروبية والعالمية', fr: 'Bouquet France TNT, Europe & Monde', en: 'France TNT, European & Global Broadcasts' },
+        desc: { ar: 'ضمن أكثر من 60,000 قناة مباشرة شاملة الباقات الفرنسية والبلجيكية والسويسرية والأوروبية.', fr: 'Parmi nos +60 000 chaînes : TNT France complète, cinéma, documentaires et Europe.', en: 'Part of our 60,000+ live channels covering France, Belgium, Switzerland, UK, and Americas.' }
+      },
+      {
+        cat: 'cinema',
+        count: '+100,000',
+        res: '4K HDR · Blu-Ray',
+        name: { ar: 'مكتبة الأفلام الضخمة (+100,000 فيلم VOD)', fr: 'Catalogue Cinéma Géant (+100 000 Films)', en: 'On-Demand Cinema Vault (+100,000 Movies)' },
+        desc: { ar: 'أكثر من 100,000 فيلم عالمي وعربي محدث يومياً مع ترجمة احترافية للعربية والفرنسية والإنجليزية.', fr: 'Plus de 100 000 films internationaux et arabes avec sous-titres AR/FR/EN mis à jour 7j/7.', en: 'Over 100,000 global and Arabic movies with multilingual subtitles updated daily.' }
+      },
+      {
+        cat: 'cinema',
+        count: '+80,000',
+        res: '4K UHD · FHD',
+        name: { ar: 'مكتبة المسلسلات الكاملة (+80,000 مسلسل)', fr: 'Séries Intégrales (+80 000 Séries)', en: 'Complete Series Library (+80,000 Series)' },
+        desc: { ar: 'أكثر من 80,000 مسلسل عالمي وعربي وتركي بجميع المواسم والحلقات محدثة يومياً.', fr: 'Plus de 80 000 séries complètes avec toutes les saisons disponibles à la demande.', en: 'Over 80,000 complete series across all seasons in 4K UHD and Full HD.' }
+      }
+    ];
+
+    const PLANS = [
+      {
+        id: '3m',
+        months: 3,
+        price: '18 €',
+        popular: false,
+        name: { ar: 'اشتراك 3 أشهر — 18 يورو', fr: 'Forfait 3 Mois — 18 €', en: '3-Month Pass — 18 €' },
+        note: { ar: 'يعادل 6 € / شهرياً · تفعيل فوري', fr: 'Soit 6,00 € / mois · Activation immédiate', en: 'Equals €6.00 / month · Instant activation' }
+      },
+      {
+        id: '12m',
+        months: 12,
+        price: '45 €',
+        popular: true,
+        name: { ar: 'اشتراك 12 شهراً — 45 يورو (الأكثر طلباً)', fr: 'Forfait 12 Mois — 45 € (Édition Privilège)', en: '12-Month Pass — 45 € (Flagship Annual)' },
+        note: { ar: 'يعادل 3.75 € / شهرياً · توفير 38% سنوياً', fr: 'Soit 3,75 € / mois · Économisez 38%', en: 'Equals €3.75 / month · Save 38% annually' }
+      },
+      {
+        id: '6m',
+        months: 6,
+        price: '28 €',
+        popular: false,
+        name: { ar: 'اشتراك 6 أشهر — 28 يورو', fr: 'Forfait 6 Mois — 28 €', en: '6-Month Pass — 28 €' },
+        note: { ar: 'يعادل 4.66 € / شهرياً · تفعيل فوري', fr: 'Soit 4,66 € / mois · Activation immédiate', en: 'Equals €4.66 / month · Instant activation' }
+      }
+    ];
+
+    const I18N = {
+      ar: {
+        dir: 'rtl',
+        nav: { apps: 'التطبيقات المدعومة', cap: 'مزايا الخدمة', bouquets: 'الباقات والقنوات', pricing: 'خطط الاشتراك', cta: 'طلب اشتراك أو تجربة 24 ساعة' },
+        status: 'خدمة BE STREAM الرسمية · +60,000 قناة · +100,000 فيلم · +80,000 مسلسل',
+        kicker: 'BE STREAM · البث الرقمي الفائق · أوروبا والمغرب والعالم',
+        headline: 'تجربة التلفزيون المباشر والسينما المنزلية بدقة 4K حقيقية دون انقطاع',
+        desc: 'منصة BE STREAM تمنحك وصولاً فورياً لأكثر من 60,000 قناة عالمية ورياضية مباشرة، وأكثر من 100,000 فيلم عالمي وعربي، وأكثر من 80,000 مسلسل كامل بجميع المواسم محدثة يومياً.',
+        primaryCta: 'ابدأ اشتراكك أو اطلب تجربة 24 ساعة',
+        secondaryCta: 'تصفح التطبيقات والباقات',
+        metrics: [
+          { v: '+60,000', u: 'قناة مباشرة', d: 'أكثر من 60,000 قناة عالمية ورياضية مباشرة 4K & FHD' },
+          { v: '+100,000', u: 'فيلم VOD', d: 'أكثر من 100,000 فيلم عالمي وعربي محدث يومياً' },
+          { v: '+80,000', u: 'مسلسل كامل', d: 'أكثر من 80,000 مسلسل بجميع المواسم والحلقات' },
+          { v: '99.95%', u: 'استقرار الخوادم', d: 'تقنية Anti-Freeze 9.4 ودعم فني بـ 3 لغات' }
+        ],
+        appsTitle: 'التطبيقات الرسمية المدعومة من BE STREAM',
+        appsSub: 'توافق كامل وتفعيل فوري عن بُعد لجميع تطبيقات البث الرائدة على الشاشات الذكية وأجهزة الاستقبال.',
+        badgeNote: 'مدعوم رسمياً · تفعيل فوري',
+        activateApp: 'تفعيل هذا التطبيق الآن',
+        capTitle: 'لماذا يختار المشتركون خدمة BE STREAM كمنصتهم الأساسية؟',
+        caps: [
+          { n: '01.', t: '+60,000 قناة عالمية ورياضية بثبات فائق', d: 'شبكة خوادم موزعة بتقنية Anti-Freeze 9.4 تضمن بثاً مباشراً بسرعة 60 إطاراً في الثانية دون تقطيع.' },
+          { n: '02.', t: '+100,000 فيلم و+80,000 مسلسل كامل', d: 'أضخم مكتبة VOD بدقة 4K HDR و Blu-Ray 1080p محدثة يومياً بترجمة عربية وفرنسية وإنجليزية.' },
+          { n: '03.', t: 'دعم رسمي لـ ORA Pro و IBO و Duplex Pro', d: 'تشغيل وتفعيل فوري على ORA Pro و IBO One و Duplex Pro و ORA Player و IBO Player و IBOX Player.' }
+        ],
+        cats: { all: 'جميع الباقات', sports: 'الرياضة المباشرة', arabic: 'المغرب والعالم العربي', french: 'فرنسا والعالم', cinema: 'الأفلام (+100K) والمسلسلات (+80K)' },
+        pricingTitle: 'اختر خطة BE STREAM المناسبة لك باليورو (€)',
+        planSpecs: [
+          '+60,000 قناة عالمية ورياضية مباشرة 4K / FHD',
+          '+100,000 فيلم و+80,000 مسلسل كامل بجميع المواسم',
+          'ثبات فائق بتقنية Anti-Freeze 9.4 بدون تقطيع',
+          'يدعم ORA Pro, IBO One, Duplex Pro, IBO Player',
+          'دعم فني متواصل 7/7 باللغات الثلاث'
+        ],
+        orderBtn: 'اشترك الآن في هذه الباقة',
+        submitBtn: 'تأكيد الطلب وإرسال عبر واتساب المبيعات الرسمي'
+      },
+      fr: {
+        dir: 'ltr',
+        nav: { apps: 'Applications Supportées', cap: 'Performance', bouquets: 'Chaînes & VOD', pricing: 'Tarifs (€)', cta: 'Commander ou Test 24h' },
+        status: 'Plateforme officielle BE STREAM · +60 000 Chaînes · +100 000 Films · +80 000 Séries',
+        kicker: 'BE STREAM · Télévision Numérique 4K & VOD · Europe & Monde',
+        headline: 'La référence du streaming TV en direct et du cinéma 4K sans aucune coupure',
+        desc: 'BE STREAM vous ouvre l’accès instantané à plus de 60 000 chaînes mondiales et sportives en direct, +100 000 films VOD et +80 000 séries complètes mis à jour quotidiennement.',
+        primaryCta: 'Activer mon Abonnement ou Test 24h',
+        secondaryCta: 'Voir les Applications & Bouquets',
+        metrics: [
+          { v: '+60 000', u: 'Chaînes Direct', d: 'Plus de 60 000 chaînes mondiales et sportives 4K & FHD' },
+          { v: '+100 000', u: 'Films VOD', d: 'Plus de 100 000 films internationaux mis à jour 7j/7' },
+          { v: '+80 000', u: 'Séries Complètes', d: 'Plus de 80 000 séries intégrales toutes saisons' },
+          { v: '99.95%', u: 'Stabilité Serveur', d: 'Technologie Anti-Freeze 9.4 & assistance 7j/7' }
+        ],
+        appsTitle: 'Applications Supportées Officiellement par BE STREAM',
+        appsSub: 'Compatibilité native et activation MAC à distance instantanée sur toutes vos Smart TV et boîtiers.',
+        badgeNote: 'Support Officiel · Activation Instantanée',
+        activateApp: 'Activer cette application',
+        capTitle: 'Pourquoi choisir BE STREAM comme plateforme principale ?',
+        caps: [
+          { n: '01.', t: '+60 000 Chaînes Mondiales & Sportives 60 FPS', d: 'Serveurs haute disponibilité avec Anti-Freeze 9.4 garantissant zéro coupure lors des grands matchs.' },
+          { n: '02.', t: '+100 000 Films & +80 000 Séries Complètes', d: 'Catalogue VOD 4K HDR et Blu-Ray 1080p avec pistes audio et sous-titres AR / FR / EN.' },
+          { n: '03.', t: 'Support Officiel ORA Pro, IBO & Duplex Pro', d: 'Activation rapide sur ORA Pro, IBO One, Duplex Pro, ORA Player, IBO Player et IBOX Player.' }
+        ],
+        cats: { all: 'Tous les Bouquets', sports: 'Sport en Direct', arabic: 'Maroc & Monde Arabe', french: 'France TNT & Monde', cinema: 'Films (+100K) & Séries (+80K)' },
+        pricingTitle: 'Sélectionnez votre formule BE STREAM en Euro (€)',
+        planSpecs: [
+          '+60 000 chaînes TV en direct en qualité 4K / FHD',
+          '+100 000 films VOD et +80 000 séries complètes',
+          'Stabilité Anti-Freeze 9.4 lors des directs sportifs',
+          'Compatible ORA Pro, IBO One, Duplex Pro, IBO Player',
+          'Assistance technique réactive 7j/7 (AR / FR / EN)'
+        ],
+        orderBtn: 'Choisir ce Forfait',
+        submitBtn: 'Confirmer et envoyer sur WhatsApp Ventes'
+      },
+      en: {
+        dir: 'ltr',
+        nav: { apps: 'Supported Apps', cap: 'Capabilities', bouquets: 'Channels & VOD', pricing: 'Plans (€)', cta: 'Subscribe or 24h Trial' },
+        status: 'Official BE STREAM Platform · +60,000 Live Channels · +100,000 Movies · +80,000 Series',
+        kicker: 'BE STREAM · 4K Digital Television & VOD · Worldwide',
+        headline: 'Uninterrupted 4K live television, global sports, and cinema on every screen',
+        desc: 'BE STREAM delivers instant access to over 60,000 live global and sports channels, over 100,000 on-demand movies, and over 80,000 complete series across all seasons.',
+        primaryCta: 'Start Your Pass or Request 24h Trial',
+        secondaryCta: 'Explore Supported Apps & Channels',
+        metrics: [
+          { v: '+60,000', u: 'Live Channels', d: 'Over 60,000 global and live sports channels in 4K & FHD' },
+          { v: '+100,000', u: 'Movies VOD', d: 'Over 100,000 international and Arabic movies updated daily' },
+          { v: '+80,000', u: 'Complete Series', d: 'Over 80,000 full series across all seasons' },
+          { v: '99.95%', u: 'Stream Stability', d: 'Anti-Freeze 9.4 routing & 7-day trilingual support' }
+        ],
+        appsTitle: 'Supported Apps — Officially Powered by BE STREAM',
+        appsSub: 'Seamless compatibility and instant remote MAC/Xtream activation across all smart TVs and devices.',
+        badgeNote: 'Official Support · Instant Provisioning',
+        activateApp: 'Activate This App Now',
+        capTitle: 'Why viewers choose BE STREAM as their primary television platform',
+        caps: [
+          { n: '01.', t: '60,000+ Global & Live Sports Channels', d: 'Distributed edge servers with Anti-Freeze 9.4 deliver smooth 60 FPS stadium broadcasts.' },
+          { n: '02.', t: '100,000+ Movies & 80,000+ Complete Series', d: 'Massive 4K HDR and 1080p VOD library updated daily with multilingual subtitles.' },
+          { n: '03.', t: 'Official Support for ORA Pro, IBO & Duplex Pro', d: 'One-click activation on ORA Pro, IBO One, Duplex Pro, ORA Player, IBO Player, and IBOX Player.' }
+        ],
+        cats: { all: 'All Bouquets', sports: 'Live Sports', arabic: 'Moroccan & Arabic', french: 'French & Global', cinema: 'Movies (+100K) & Series (+80K)' },
+        pricingTitle: 'Choose your official BE STREAM pass in Euro (€)',
+        planSpecs: [
+          '60,000+ live global & sports channels in 4K / FHD',
+          '100,000+ VOD movies & 80,000+ complete series',
+          'Zero-buffering Anti-Freeze 9.4 stadium routing',
+          'Supports ORA Pro, IBO One, Duplex Pro, IBO Player',
+          '7-day multilingual technical support (AR / FR / EN)'
+        ],
+        orderBtn: 'Select This Pass',
+        submitBtn: 'Confirm Request via Official WhatsApp Sales'
+      }
+    };
+
+    function renderAll() {
+      const t = I18N[currentLang];
+      document.documentElement.lang = currentLang;
+      document.documentElement.dir = t.dir;
+
+      // Update Language Buttons
+      ['ar', 'fr', 'en'].forEach(code => {
+        const btn = document.getElementById('lang-btn-' + code);
+        if (code === currentLang) {
+          btn.className = 'px-3 py-1.5 text-xs font-semibold rounded-md transition-colors whitespace-nowrap shrink-0 cursor-pointer bg-[#E5A93C] text-[#090A0F]';
+        } else {
+          btn.className = 'px-3 py-1.5 text-xs font-medium rounded-md transition-colors whitespace-nowrap shrink-0 cursor-pointer text-neutral-300 hover:text-white';
+        }
+      });
+
+      // Nav & Hero
+      document.getElementById('nav-apps').textContent = t.nav.apps;
+      document.getElementById('nav-capabilities').textContent = t.nav.cap;
+      document.getElementById('nav-bouquets').textContent = t.nav.bouquets;
+      document.getElementById('nav-pricing').textContent = t.nav.pricing;
+      document.getElementById('nav-cta').textContent = t.nav.cta;
+      document.getElementById('hero-status').textContent = t.status;
+      document.getElementById('hero-kicker').textContent = t.kicker;
+      document.getElementById('hero-headline').textContent = t.headline;
+      document.getElementById('hero-desc').textContent = t.desc;
+      document.getElementById('hero-primary-cta').textContent = t.primaryCta;
+      document.getElementById('hero-secondary-cta').textContent = t.secondaryCta;
+
+      // Metrics
+      document.getElementById('hero-metrics').innerHTML = t.metrics.map(m => `
+        <div class="space-y-1.5">
+          <div class="flex items-baseline gap-2">
+            <span class="text-2xl sm:text-3xl font-bold text-white font-mono tabular-nums" dir="ltr">${m.v}</span>
+            <span class="text-sm font-semibold text-[#E5A93C]">${m.u}</span>
+          </div>
+          <p class="text-xs text-neutral-400 leading-relaxed">${m.d}</p>
+        </div>
+      `).join('');
+
+      // Supported Apps
+      document.getElementById('apps-title').textContent = t.appsTitle;
+      document.getElementById('apps-subtitle').textContent = t.appsSub;
+      document.getElementById('apps-grid').innerHTML = OFFICIAL_APPS.map(app => `
+        <div class="p-6 rounded-xl border border-white/10 bg-[#11141F] hover:border-[#E5A93C]/60 transition-all flex flex-col justify-between gap-4">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between gap-2">
+              <h3 dir="ltr" class="text-xl font-bold text-white font-display">${app.name}</h3>
+              <span class="text-xs font-mono text-[#E5A93C]">${t.badgeNote}</span>
+            </div>
+            <p dir="ltr" class="text-xs text-neutral-300">${app.platforms}</p>
+            <p dir="ltr" class="text-xs font-mono text-neutral-400">${app.spec}</p>
+          </div>
+          <div class="pt-3 border-t border-white/10 flex items-center justify-between">
+            <button type="button" onclick="chooseApp('${app.name}')" class="text-xs font-semibold text-[#E5A93C] hover:underline cursor-pointer">${t.activateApp} ↘</button>
+            <a href="https://wa.me/bestream.sales" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-neutral-400 hover:text-white">WhatsApp ↗</a>
+          </div>
+        </div>
+      `).join('');
+
+      // Capabilities
+      document.getElementById('cap-title').textContent = t.capTitle;
+      document.getElementById('cap-grid').innerHTML = t.caps.map(c => `
+        <div class="p-6 sm:p-8 rounded-xl border border-white/10 bg-[#121520] space-y-3">
+          <h3 class="text-lg sm:text-xl font-bold text-white font-display">${c.n} ${c.t}</h3>
+          <p class="text-sm text-neutral-300 leading-relaxed">${c.d}</p>
+        </div>
+      `).join('');
+
+      // Categories & Bouquets
+      renderBouquets();
+
+      // Pricing
+      document.getElementById('pricing-title').textContent = t.pricingTitle;
+      document.getElementById('pricing-grid').innerHTML = PLANS.map(p => `
+        <div class="p-6 sm:p-8 rounded-xl flex flex-col justify-between space-y-6 ${p.popular ? 'bg-[#151928] border-2 border-[#E5A93C]' : 'bg-[#121520] border border-white/10'}">
+          <div class="space-y-4">
+            <h3 class="text-xl font-bold text-white font-display">${p.name[currentLang]}</h3>
+            <div class="pt-2 border-t border-white/10">
+              <div class="text-3xl sm:text-4xl font-bold text-white font-mono tabular-nums" dir="ltr">${p.price}</div>
+              <p class="text-xs text-[#E5A93C] mt-1">${p.note[currentLang]}</p>
+            </div>
+            <ul class="space-y-2.5 pt-2">
+              ${t.planSpecs.map(s => `<li class="flex items-start gap-2 text-xs sm:text-sm text-neutral-200"><span class="text-[#E5A93C]">✓</span><span>${s}</span></li>`).join('')}
+            </ul>
+          </div>
+          <div class="pt-4 space-y-2">
+            <button type="button" onclick="selectPlan('${p.id}', '${p.price}'); scrollToOrder('subscription');" class="w-full py-3.5 px-5 text-xs sm:text-sm font-semibold rounded-lg transition-colors cursor-pointer ${p.popular ? 'bg-[#E5A93C] text-[#090A0F] hover:bg-[#f0b84d]' : 'bg-white/10 text-white hover:bg-white/15'}">
+              ${t.orderBtn} (${p.price})
+            </button>
+            <a href="https://wa.me/bestream.sales" target="_blank" rel="noopener noreferrer" class="block text-center text-xs font-mono text-neutral-400 hover:text-[#E5A93C]">wa.me/bestream.sales ↗</a>
+          </div>
+        </div>
+      `).join('');
+
+      document.getElementById('submit-order-btn').textContent = t.submitBtn;
+    }
+
+    function renderBouquets() {
+      const t = I18N[currentLang];
+      const cats = ['all', 'sports', 'arabic', 'french', 'cinema'];
+      document.getElementById('category-tabs').innerHTML = cats.map(c => `
+        <button type="button" onclick="setCategory('${c}')" class="px-3.5 py-2 text-xs sm:text-sm font-medium rounded-md transition-colors cursor-pointer ${currentCategory === c ? 'bg-[#E5A93C] text-[#090A0F] font-semibold' : 'text-neutral-300 hover:text-white'}">
+          ${t.cats[c]}
+        </button>
+      `).join('');
+
+      const list = BOUQUETS.filter(b => currentCategory === 'all' || b.cat === currentCategory);
+      document.getElementById('bouquets-grid').innerHTML = list.map(b => `
+        <article class="p-6 rounded-xl border border-white/10 bg-[#121520] flex flex-col justify-between space-y-4">
+          <div class="space-y-2">
+            <div class="text-xs font-mono text-[#E5A93C]" dir="ltr">${b.res}</div>
+            <h3 class="text-lg font-bold text-white font-display">${b.name[currentLang]}</h3>
+            <p class="text-sm text-neutral-300 leading-relaxed">${b.desc[currentLang]}</p>
+          </div>
+          <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
+            <span class="font-mono font-bold text-white text-sm" dir="ltr">${b.count}</span>
+            <button type="button" onclick="scrollToOrder('subscription')" class="text-[#E5A93C] font-semibold hover:underline cursor-pointer">${t.orderBtn} ↘</button>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      renderAll();
+    }
+
+    function setCategory(cat) {
+      currentCategory = cat;
+      renderBouquets();
+    }
+
+    function chooseApp(appName) {
+      document.getElementById('input-app').value = appName;
+      scrollToOrder('subscription');
+    }
+
+    function selectPlan(id, price) {
+      currentPlan = id.toUpperCase() + ' (' + price + ')';
+      ['3m', '6m', '12m'].forEach(k => {
+        const el = document.getElementById('plan-btn-' + k);
+        if (k === id) {
+          el.className = 'p-4 rounded-lg border text-start transition-colors cursor-pointer bg-[#E5A93C]/15 border-[#E5A93C] text-white';
+        } else {
+          el.className = 'p-4 rounded-lg border text-start transition-colors cursor-pointer bg-[#090A0F] border-white/10 text-neutral-300';
+        }
+      });
+    }
+
+    function scrollToOrder(mode) {
+      const el = document.getElementById('order');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function submitOrderForm(e) {
+      e.preventDefault();
+      const name = document.getElementById('input-name').value.trim();
+      const contact = document.getElementById('input-contact').value.trim();
+      const app = document.getElementById('input-app').value.trim();
+      const msg = encodeURIComponent(`Hello BE STREAM Sales, I would like to activate:\n- Plan: ${currentPlan}\n- App: ${app}\n- Name: ${name}\n- Contact: ${contact}`);
+      window.open(`https://wa.me/212664333328?text=${msg}`, '_blank');
+    }
+
+    // Initialize on load
+    renderAll();
+  </script>
 </body>
 </html>
